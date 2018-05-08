@@ -1,0 +1,23 @@
+{
+    "name": "admin_pro",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "colors": "^1.2.4",
+        "moment": "^2.22.1",
+        "restify": "^7.1.1",
+        "restify-cors-middleware": "^1.1.0",
+        "restify-errors": "^6.0.0"
+    },
+    "devDependencies": {
+        "eslint-config-airbnb-base": "^12.1.0",
+        "eslint": "^4.19.1",
+        "eslint-plugin-import": "^2.11.0"
+    }
+}
