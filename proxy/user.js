@@ -1,21 +1,53 @@
+const md5 = require('md5');
+const { User } = require('../model');
 
-const getUsers = () => {
-    const result = [
-        { name: '小明', age: 14 },
-        { name: '小红', age: 11 },
-        { name: '小王', age: 16 },
-    ];
+const getList = async () => {
+    const result = await User.find();
     return result;
 };
 
-const getUser = ({ id }) => {
-    const result = {
-        name: '小明',
-        age: 14,
-    };
+const getById = async (id) => {
+    const result = await User.findById(id);
+    return result;
+};
+
+const login = async ({ username, password }) => {
+    let result;
+    const model = await User.findOne({ username });
+    if (model) {
+        if (model.password === md5(password || '')) {
+            result = { id: model.id, username: model.username };
+        } else {
+            result = {};
+        }
+    } else {
+        result = {};
+    }
+    return result;
+};
+
+const add = async ({ username, password = '123456' }) => {
+    const user = new User({ username, password: md5(password) });
+    const result = await user.save();
+    return result;
+};
+
+const update = async (model) => {
+    const { id, ...body } = model;
+    const result = await User.findByIdAndUpdate(id, body, { new: true });
+    return result;
+};
+
+const remove = async (id) => {
+    const result = await User.findByIdAndRemove(id);
+    return result;
 };
 
 module.exports = {
-    getUsers,
-    getUser,
+    getList,
+    getById,
+    add,
+    update,
+    remove,
+    login,
 };

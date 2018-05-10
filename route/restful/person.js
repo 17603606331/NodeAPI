@@ -32,13 +32,13 @@ exports.get = [
 ];
 
 exports.post = [
-    { path: '/person', handler: addPerson },
+    { path: '/person', handler: addPerson, identity: true },
 ];
 
 exports.put = [
-    { path: '/person/:id', handler: updatePersonById },
+    { path: '/person/:id', handler: updatePersonById, identity: true },
 ];
 
 exports.del = [
-    { path: '/person/:id', handler: removePersonById },
+    { path: '/person/:id', handler: removePersonById, identity: true },
 ];
