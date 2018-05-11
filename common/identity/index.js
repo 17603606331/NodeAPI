@@ -5,11 +5,11 @@ const jwt = require('jsonwebtoken');
 /**
  * 生成token
  */
-const generateToken = (data) => {
+const generateToken = (data, expiresIn = '2 days') => {
     const cert = fs.readFileSync(path.join(__dirname, 'private_key.pem'));
     const token = jwt.sign({
         data,
-    }, cert, { algorithm: 'RS256', expiresIn: '2 days' });
+    }, cert, { algorithm: 'RS256', expiresIn });
     return token;
 };
 
