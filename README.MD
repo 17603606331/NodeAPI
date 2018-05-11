@@ -7,6 +7,7 @@
 4. 添加`.eslintrc` rules
 5. 添加`.editorconfig`
 6. 添加公共函数文件夹 `common` 并添加跟踪模块 包括 `日志信息`和`错误信息`
+7. 安装MongoDB
 
 > 第二步：添加路由层
 1. 可支持多种路由模式 如 [restful](http://www.ruanyifeng.com/blog/2011/09/restful) 或者 [graphql](http://graphql.cn/) 等等
